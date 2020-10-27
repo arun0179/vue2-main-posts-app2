@@ -15,6 +15,7 @@
             </div>
             <div class="col-md-6">
                 <h4>Posts List</h4>
+                <!-- {{posts}} -->
                 <ul class="list-group all-posts" v-if="posts">
                     <li class="list-group-item"
                         :class="{ active: index == currentIndex }"
@@ -71,8 +72,8 @@ export default {
         retrievePosts() {
             PostsDataService.getAll()
                 .then(response => {
-                    this.posts = response.data
-                    console.log(response.data)
+                    this.posts = response.data.data
+                    console.log(response.data.data)
                 })
                 .catch(e => {
                     console.log(e.message)
